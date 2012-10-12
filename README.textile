@@ -1,0 +1,32 @@
+h2. Do 
+
+* Use simplicity as the primary metric when evaluating competing options
+* Document all major design decisions - [one possible approach](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions)
+* Keep the build green at all costs
+* Guide reviews using SOLID principles
+* Write self explanatory code
+* Write readable unit tests
+* Start reviews with unit tests
+** Lack of unit tests is an immediate failure of the review
+** A reviewer should be able to infer the single responsibility of a class from the test suite
+* Add a single sentence XML code comment to the top of classes you write or touch
+** Being forced to describe the single responsibility of a class can be a useful design aid
+
+h2. Consider
+
+* A functional approach - immutable types, "pure functions":http://en.wikipedia.org/wiki/Pure_function etc
+
+h2. Avoid
+
+* Complex solutions
+** Only ignore this recommendation if the benefits are demonstrably overwhelming
+* Constructing invalid objects
+* Extensive usage of stubs and mocks in unit test setup
+* Mutable objects
+
+h2. Don't
+
+* Disable any automated tests
+* Be fooled by self explanatory easy to read code - it isn't necessarily SOLID
+* Test multiple scenarios in a single unit test
+* Repeat yourself!
