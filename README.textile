@@ -5,7 +5,7 @@ h1. Do
 * Write readable unit tests
 * Automate repetitive tasks
 
-h2. Documentation
+h4. Documentation
 
 * Document all major design decisions - [one possible approach](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions)
 * Add a single sentence XML code comment to the top of classes you write or touch
@@ -14,7 +14,7 @@ h2. Documentation
 * Add a project level README.md to explain the role of a project
 * Ensure that acceptance criteria are clearly identified before starting work on a story
 
-h2. Reviews 
+h4. Reviews 
 
 * Do Get a code review when you think you've finished implementation
 * Guide reviews using SOLID principles
@@ -22,7 +22,7 @@ h2. Reviews
 ** Lack of unit tests is an immediate failure of the review
 ** A reviewer should be able to infer the single responsibility of a class from the test suite
 
-h2. Build/Deploy
+h4. Build/Deploy
 
 * Keep the build green at all costs
 ** Panic when the build goes red - establish who is working to resolve the issue
