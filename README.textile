@@ -7,7 +7,7 @@ h1. Do
 
 h4. Documentation
 
-* Document all major design decisions - [one possible approach](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions)
+* Document all major design decisions - "one possible approach":http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions
 * Add a single sentence XML code comment to the top of classes you write or touch
 ** Being forced to describe the single responsibility of a class can be a useful design aid
 * Keep high level diagrams up to date
@@ -16,8 +16,8 @@ h4. Documentation
 
 h4. Reviews 
 
-* Do Get a code review when you think you've finished implementation
-* Guide reviews using SOLID principles
+* Get a code review when you think you've finished implementation
+* Guide reviews using "SOLID":http://en.wikipedia.org/wiki/SOLID_(object-oriented_design) principles
 * Start reviews with unit tests
 ** Lack of unit tests is an immediate failure of the review
 ** A reviewer should be able to infer the single responsibility of a class from the test suite
