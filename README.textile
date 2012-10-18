@@ -1,4 +1,61 @@
-h1. Do 
+h1. The Pebble Way
+
+bq. "Simple software that solves difficult problems"
+-- pebble {code} website (2012)
+
+This document defines what we at pebble {code} believe is the correct way to develop .NET software. 
+It starts from the assumption that the team is smart, motivated and _passionate_ about software development. Therefore 
+it is not an attempt to prevent a weak team from causing damage; it is a set of guidelines that can:
+
+* Help smart people come up with the correct solutions to the problems they face whilst developing software.
+* Encourage creativity and risk-taking by providing a safety net that detects problems early and limits their impact.
+* Allow people to move between projects by reducing the learning curve to the bare minimum.
+
+It is heavily based on the ideas in "Simple Made Easy":http://www.infoq.com/presentations/Simple-Made-Easy. 
+Make sure you have watched that video before proceeding with the rest of this document.
+
+Firstly, simplicity lies at the heart of most (all?) principles and guidelines for software development. 
+Rather than trying to list out everything that we believe we should be doing (which is an impossible task because the 
+correct approach is always context-dependent), _analyzing the problem from the perspective of simplicity can provide a 
+way to arrive at the correct solution_. However, we typically conflate the meaning of "easy" and "simple", so the first 
+step is to clearly differentiate the two terms so that we can have meaningful conversations:
+
+* Easy = "familiar, near-at-hand, close to our capabilities" (the opposite being "hard")
+* Simple = "one fold or braid" (the opposite being "complex", meaning "braided together, entwined")
+* Simplicity is often hard to achieve
+* Simple things are _always_ easy to use
+
+Secondly, we are blind to a lot of the complexity because it is so familiar to us. Many of our current standard software 
+development practices originated over 20 years ago, and are optimised to deal with far more onerous constraints (both in 
+terms of hardware and software) than we face today. As a result, these practices often introduce significant accidental 
+complexity into our solutions. _We need to be open to investigating the new approaches that will become dominant in the 
+next decade_.
+
+Thirdly, we need to be clear about who the user is, as they (*not* us) will judge our efforts. For a UI, it is the human interacting 
+with it; for an API, it is the client application; for a component, it is the next programmer who needs to understand it, etc. 
+_Then we need to figure out how best to communicate with that user (again using simplicity as a guide)_.
+
+h1. Some Concrete Guidelines
+
+These guidelines will evolve over time. At any point any team member can suggest a change, and if the team agrees then the change is adopted. 
+_However, nobody is allowed to unilaterally ignore them_. The guidelines have been categorised 
+(idea stolen from "Framework Design Guidelines":http://www.amazon.co.uk/Framework-Design-Guidelines-Conventions-Development/dp/0321545613) into:
+
+* Do
+** Something that we feel is extremely important to do. 
+** There will only be _very rare_ exceptions, and these need to be discussed by the _whole project team_.
+* Consider
+** Something that is our default approach, but we sometimes choose not to do when we understand the implications. 
+** These exceptions must be discussed in an _early code/design review_.
+* Avoid
+** Something that we try not to do, but may sometimes choose to when we understand the implications. 
+** These exceptions must be discussed in an _early code/design review_.
+* Don't
+** Something that we feel is extremely bad practice. 
+** There will only be _very rare_ exceptions, and these need to be discussed by the _whole project team_.
+
+
+h2. Do 
 
 * Use simplicity as the primary metric when evaluating competing options
 * Write self explanatory code
@@ -30,14 +87,14 @@ h4. Build/Deploy
 * Treat build/deploy scripts as first class citizens
 ** The same rules and standards you apply to code apply to your scripts
 
-h1. Consider
+h2. Consider
 
 * Backing out changes that break the build
 * Pursuing a functional approach - immutable types, "pure functions":http://en.wikipedia.org/wiki/Pure_function etc
 * Asking for a design review at any point of working on a story
 * Adding smoketests to validate components
 
-h1. Avoid
+h2. Avoid
 
 * Complex solutions
 ** Only ignore this recommendation if the benefits are demonstrably overwhelming
@@ -45,7 +102,7 @@ h1. Avoid
 * Extensive usage of stubs and mocks in unit test setup
 * Mutable objects
 
-h1. Don't
+h2. Don't
 
 * Disable any automated tests
 * Be fooled by self explanatory easy to read code - it isn't necessarily SOLID
