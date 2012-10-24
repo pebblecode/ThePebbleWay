@@ -111,9 +111,16 @@ h2. Don't
 h1. References/Further Reading
 
 fn1. Simple Made Easy:http://www.infoq.com/presentations/Simple-Made-Easy-QCon-London-2012
+
 fn2. Code as Design:http://www.developerdotstar.com/mag/articles/reeves_design_main.html
+
 fn3. Framework Design Guidelines:http://www.amazon.co.uk/Framework-Design-Guidelines-Conventions-Development/dp/0321545613
+
 fn4. Architecture Decision Records:http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions
+
 fn5. SOLID::http://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
+
 fn6. Immutable Types:http://msdn.microsoft.com/en-us/library/hh297115(v=vs.100).aspx
+
 fn7. Pure Functions:http://blogs.msdn.com/b/ericwhite/archive/2006/10/03/pure-functions.aspx
+
