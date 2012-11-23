@@ -39,11 +39,23 @@ h1. Evolution
 This document will evolve over time. At any point any team member can suggest a change, and if the team agrees then the change is adopted.
 _However, nobody is allowed to unilaterally ignore any aspect of this document_.
 
+h1. General Principles
+
+* All technical work is undertaken in order to deliver something that our clients value. If we can't identify client value in something we are proposing, then we shouldn't be doing it. 
+Focus on delivering a _continual stream_ of value to the client.
+* Use simplicity as the primary metric when evaluating competing options. Avoid complex options unless the benefits are demonstrably overwhelming.
+* Lean heavily on your tools to automate as much as practical e.g.
+** Enforcing coding style guidelines
+** Catching common programming errors
+*** Judicious use of tools like FxCop or NDepend for detecting errors
+*** Better languages (e.g. F#) or compilers (e.g. Code Contracts) for preventing errors
+*** Types are your friend (most of the time), as they enlist the compiler to come to your aid. Also, the more specific[4] they are, the better - avoid primitive types[5] where possible.
+* Make it correct, make it clear, make it concise, make it fast. In that order.[3]
+
 h1. Some Concrete Guidelines
 
-What follows are some guidelines under the folowing headings:
+What follows are some guidelines under the following headings:
 
-* General
 * Requirements
 * Design
 * Review
@@ -55,7 +67,7 @@ What follows are some guidelines under the folowing headings:
 These headings are only there to make it easier to navigate the content: they do *not* imply that we are following a waterfall process.
 
 The guidelines have been further categorised 
-(idea stolen from "Framework Design Guidelines":http://www.amazon.co.uk/Framework-Design-Guidelines-Conventions-Development/dp/0321545613) into:
+(idea stolen from "Framework Design Guidelines"[4]) into:
 
 * Do
 ** Something that we feel is extremely important to do. 
@@ -70,21 +82,6 @@ The guidelines have been further categorised
 ** Something that we feel is extremely bad practice. 
 ** There will only be _very rare_ exceptions, and these need to be discussed by the _whole project team_.
 
-
-h2. General
-
-* DO
-** Use simplicity as the primary metric when evaluating competing options
-* CONSIDER
-** Automating repetitive tasks
-* AVOID
-** Complex solutions
-*** Only ignore this recommendation if the benefits are demonstrably overwhelming
-* DON'T
-** Repeat yourself!
-** Fix it if it ain't broke
-*** We only refactor code that we are actively working on, otherwise we live with the imperfections and tackle higher priority issues.
-
 h2. Requirements
 
 * DO
@@ -96,9 +93,9 @@ h2. Requirements
 h2. Design
 
 * DO
-** Follow SOLID:http://en.wikipedia.org/wiki/SOLID_(object-oriented_design) design principles
+** Follow SOLID[5] design principles
 * CONSIDER
-** Pursuing a functional approach - immutable types, "pure functions":http://en.wikipedia.org/wiki/Pure_function etc
+** Pursuing a functional approach - immutable types[6], "pure functions"[7] etc
 ** Asking for a design review at any point of working on a story
 *** Feel free to pair with another developer if that seems like a better way to get two heads involved.
 * AVOID
@@ -110,7 +107,7 @@ h2. Review
 
 * DO
 ** Get a code review when you think you've finished implementation
-** Guide reviews using SOLID:http://en.wikipedia.org/wiki/SOLID_(object-oriented_design) principles
+** Guide reviews using SOLID[5] principles
 * CONSIDER
 ** Starting reviews from the unit tests
 *** Lack of unit tests is an immediate failure of the review
@@ -124,15 +121,14 @@ h2. Documentation
 * DO
 ** Write self explanatory code
 ** Write readable unit tests
-** Document all major design decisions - one possible approach:http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions
+** Document all major design decisions[8].
 ** Add a single sentence XML code comment to the top of classes you write or touch
 *** Being forced to describe the single responsibility of a class can be a useful design aid
 ** Add a project level README.md to explain the role of each project within the solution
-** Add one or more high level diagrams to "explain the big picture":http://www.codingthearchitecture.com/pages/book/start-with-the-big-picture.html
+** Add one or more high level diagrams to "explain the big picture"[9].
 * CONSIDER
 * AVOID
 * DON'T
-
 
 h2. Testing
 
@@ -165,13 +161,21 @@ fn1. Simple Made Easy:http://www.infoq.com/presentations/Simple-Made-Easy-QCon-L
 
 fn2. Code as Design:http://www.developerdotstar.com/mag/articles/reeves_design_main.html
 
-fn3. Framework Design Guidelines:http://www.amazon.co.uk/Framework-Design-Guidelines-Conventions-Development/dp/0321545613
+fn3. Immutability, Purity, and Referential Transparency:http://blogs.msdn.com/b/wesdyer/archive/2007/03/01/immutability-purity-and-referential-transparency.aspx
 
-fn4. Architecture Decision Records:http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions
+fn4. Value Objects:http://www.infoq.com/presentations/Value-Objects-Dan-Bergh-Johnsson
 
-fn5. SOLID::http://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
+fn5. Primitive Obsession:http://c2.com/cgi/wiki?PrimitiveObsession
 
-fn6. Immutable Types:http://msdn.microsoft.com/en-us/library/hh297115(v=vs.100).aspx
+fn6. Framework Design Guidelines:http://www.amazon.co.uk/Framework-Design-Guidelines-Conventions-Development/dp/0321545613
 
-fn7. Pure Functions:http://blogs.msdn.com/b/ericwhite/archive/2006/10/03/pure-functions.aspx
+fn7. SOLID::http://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
+
+fn8. Immutable Types:http://msdn.microsoft.com/en-us/library/hh297115(v=vs.100).aspx
+
+fn9. Pure Functions:http://blogs.msdn.com/b/ericwhite/archive/2006/10/03/pure-functions.aspx
+
+fn10. Architecture Decision Records:http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions
+
+fn11. Start with the Big Picture:http://www.codingthearchitecture.com/pages/book/start-with-the-big-picture.html
 
