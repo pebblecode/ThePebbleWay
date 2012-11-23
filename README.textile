@@ -36,21 +36,19 @@ _Then we need to figure out how best to communicate with that user (again using 
 
 h1. Evolution
 
-This document will evolve over time. At any point any team member can suggest a change, and if the team agrees then the change is adopted.
-_However, nobody is allowed to unilaterally ignore any aspect of this document_.
+This document will evolve over time. At any point any team member can suggest a change, and if the team agrees then the change is adopted. _However, nobody is allowed to unilaterally ignore any aspect of this document_.
 
 h1. General Principles
 
-* All technical work is undertaken in order to deliver something that our clients value. If we can't identify client value in something we are proposing, then we shouldn't be doing it. 
-Focus on delivering a _continual stream_ of value to the client.
+* All technical work is undertaken in order to deliver something that our clients value. If we can't identify client value in something we are proposing, then we shouldn't be doing it. Focus on delivering a _continual stream_ of value to the client.
 * Use simplicity as the primary metric when evaluating competing options. Avoid complex options unless the benefits are demonstrably overwhelming.
-* Lean heavily on your tools to automate as much as practical e.g.
+* Lean heavily on your tools to automate as much routine work as practical e.g.
 ** Enforcing coding style guidelines
 ** Catching common programming errors
-*** Judicious use of tools like FxCop or NDepend for detecting errors
-*** Better languages (e.g. F#) or compilers (e.g. Code Contracts) for preventing errors
-*** Types are your friend (most of the time), as they enlist the compiler to come to your aid. Also, the more specific[4] they are, the better - avoid primitive types[5] where possible.
-* Make it correct, make it clear, make it concise, make it fast. In that order.[3]
+*** Judicious use of tools like FxCop[3] or NDepend[4] for detecting errors
+*** Richer languages (e.g. F#[5]) and/or more sophisticated compilers (e.g. Code Contracts[6]) for preventing errors
+*** Types are your friend (most of the time), as they enlist the compiler to come to your aid. 
+* Make it correct, make it clear, make it concise, make it fast. In that order.[7]
 
 h1. Some Concrete Guidelines
 
@@ -59,7 +57,6 @@ What follows are some guidelines under the following headings:
 * Requirements
 * Design
 * Review
-* Implementation
 * Documentation
 * Testing
 * Build/Deployment
@@ -67,7 +64,7 @@ What follows are some guidelines under the following headings:
 These headings are only there to make it easier to navigate the content: they do *not* imply that we are following a waterfall process.
 
 The guidelines have been further categorised 
-(idea stolen from "Framework Design Guidelines"[4]) into:
+(idea stolen from "Framework Design Guidelines"[8]) into:
 
 * Do
 ** Something that we feel is extremely important to do. 
@@ -93,39 +90,45 @@ h2. Requirements
 h2. Design
 
 * DO
-** Follow SOLID[5] design principles
+** Follow SOLID[9] design principles
 * CONSIDER
-** Pursuing a functional approach - immutable types[6], "pure functions"[7] etc
 ** Asking for a design review at any point of working on a story
 *** Feel free to pair with another developer if that seems like a better way to get two heads involved.
+** Using composition before reaching for inheritance[10]
+** Using Value Objects[11] rather than primitive types[12].
+** Pursuing a functional approach - immutable types[13], "pure functions"[14] etc
+** Using declarative rather than imperative approaches, where possible, even if this means learning a new paradigm e.g. Rx[15]
 * AVOID
 ** Constructing invalid objects
-** Mutable objects
+** Low level threading constructs (threads, locks, wait handles etc). There is almost always a better, higher level abstraction.
+** Global state - examine all use of static types.
 * DON'T
+** Mix mutable state and lazy evaluation. You have been warned - don't come crying to me.
 
 h2. Review
 
 * DO
 ** Get a code review when you think you've finished implementation
-** Guide reviews using SOLID[5] principles
+** Guide reviews using SOLID[9] principles
 * CONSIDER
 ** Starting reviews from the unit tests
 *** Lack of unit tests is an immediate failure of the review
 *** A reviewer should be able to infer the single responsibility of a class from the test suite
 * AVOID
+** Focussing on style issues. These kinds of checks should be automated.
 * DON'T
-** Be fooled by self explanatory easy to read code - it isn't necessarily SOLID
+** Be fooled by self explanatory easy to read code - it isn't necessarily SOLID[9]
 
 h2. Documentation
 
 * DO
 ** Write self explanatory code
 ** Write readable unit tests
-** Document all major design decisions[8].
+** Document all major design decisions[16].
 ** Add a single sentence XML code comment to the top of classes you write or touch
 *** Being forced to describe the single responsibility of a class can be a useful design aid
 ** Add a project level README.md to explain the role of each project within the solution
-** Add one or more high level diagrams to "explain the big picture"[9].
+** Add one or more high level diagrams to "explain the big picture"[17].
 * CONSIDER
 * AVOID
 * DON'T
@@ -161,21 +164,32 @@ fn1. Simple Made Easy:http://www.infoq.com/presentations/Simple-Made-Easy-QCon-L
 
 fn2. Code as Design:http://www.developerdotstar.com/mag/articles/reeves_design_main.html
 
-fn3. Immutability, Purity, and Referential Transparency:http://blogs.msdn.com/b/wesdyer/archive/2007/03/01/immutability-purity-and-referential-transparency.aspx
+fn3. FxCop:http://www.microsoft.com/en-us/download/details.aspx?id=6544
 
-fn4. Value Objects:http://www.infoq.com/presentations/Value-Objects-Dan-Bergh-Johnsson
+fn4. NDepend:http://www.ndepend.com/
 
-fn5. Primitive Obsession:http://c2.com/cgi/wiki?PrimitiveObsession
+fn5. F#:http://www.tryfsharp.org/
 
-fn6. Framework Design Guidelines:http://www.amazon.co.uk/Framework-Design-Guidelines-Conventions-Development/dp/0321545613
+fn6. Code Contracts:http://research.microsoft.com/en-us/projects/contracts/
 
-fn7. SOLID::http://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
+fn7. Immutability, Purity, and Referential Transparency:http://blogs.msdn.com/b/wesdyer/archive/2007/03/01/immutability-purity-and-referential-transparency.aspx
 
-fn8. Immutable Types:http://msdn.microsoft.com/en-us/library/hh297115(v=vs.100).aspx
+fn8. Framework Design Guidelines:http://www.amazon.co.uk/Framework-Design-Guidelines-Conventions-Development/dp/0321545613
 
-fn9. Pure Functions:http://blogs.msdn.com/b/ericwhite/archive/2006/10/03/pure-functions.aspx
+fn9. SOLID::http://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
 
-fn10. Architecture Decision Records:http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions
+fn10. Composition over inheritance:http://en.wikipedia.org/wiki/Composition_over_inheritance
 
-fn11. Start with the Big Picture:http://www.codingthearchitecture.com/pages/book/start-with-the-big-picture.html
+fn11. Value Objects:http://www.infoq.com/presentations/Value-Objects-Dan-Bergh-Johnsson
 
+fn12. Primitive Obsession:http://c2.com/cgi/wiki?PrimitiveObsession
+
+fn13. Immutable Types:http://msdn.microsoft.com/en-us/library/hh297115(v=vs.100).aspx
+
+fn14. Pure Functions:http://blogs.msdn.com/b/ericwhite/archive/2006/10/03/pure-functions.aspx
+
+fn15. Reactive Extensions:http://www.introtorx.com/Content/v1.0.10621.0/01_WhyRx.html#WhyRx
+
+fn16. Architecture Decision Records:http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions
+
+fn17. Start with the Big Picture:http://www.codingthearchitecture.com/pages/book/start-with-the-big-picture.html
