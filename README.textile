@@ -151,7 +151,7 @@ h2. Review
 *** Lack of unit tests is an immediate failure of the review.
 *** A reviewer should be able to infer the single responsibility of a class from the test suite.
 * AVOID
-** Focussing on style issues. These kinds of checks should be automated.
+** Focusing on style issues. These kinds of checks should be automated.
 * DON'T
 ** Be fooled by self explanatory easy to read code - it isn't necessarily SOLID[9].
 
