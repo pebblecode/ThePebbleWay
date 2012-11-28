@@ -68,49 +68,49 @@ The guidelines have been further categorised
 (idea stolen from "Framework Design Guidelines"[8]) into:
 
 * Do
-** Something that we feel is extremely important to do
-** There will only be _very rare_ exceptions, and these need to be discussed by the _whole project team_
+** Something that we feel is extremely important to do.
+** There will only be _very rare_ exceptions, and these need to be discussed by the _whole project team_.
 * Consider
-** Something that is our default approach, but we sometimes choose not to do when we understand the implications
-** These exceptions must be discussed in an _early review_
+** Something that is our default approach, but we sometimes choose not to do when we understand the implications.
+** These exceptions must be discussed in an _early review_.
 * Avoid
 ** Something that we try not to do, but may sometimes choose to when we understand the implications.
-** These exceptions must be discussed in an _early review_
+** These exceptions must be discussed in an _early review_.
 * Don't
 ** Something that we feel is extremely bad practice.
-** There will only be _very rare_ exceptions, and these need to be discussed by the _whole project team_
+** There will only be _very rare_ exceptions, and these need to be discussed by the _whole project team_.
 
 
 h2. General
 
 * DO
-** Use simplicity as the primary metric when evaluating competing options
+** Use simplicity as the primary metric when evaluating competing options.
 * CONSIDER
-** Automating repetitive tasks
+** Automating repetitive tasks.
 * AVOID
-** Complex solutions
-*** Only ignore this recommendation if the benefits are demonstrably overwhelming
+** Complex solutions.
+*** Only ignore this recommendation if the benefits are demonstrably overwhelming.
 * DON'T
 ** Repeat yourself!
-** Fix it if it ain't broke
+** Fix it if it ain't broke.
 *** We only refactor code that we are actively working on, otherwise we live with the imperfections and tackle higher priority issues.
 
 ** Something that we feel is extremely bad practice.
-** There will only be _very rare_ exceptions, and these need to be discussed by the _whole project team_
+** There will only be _very rare_ exceptions, and these need to be discussed by the _whole project team_.
 
 h2. General
 
 * DO
-** Use simplicity as the primary metric when evaluating competing options
+** Use simplicity as the primary metric when evaluating competing options.
 * CONSIDER
-** Automating repetitive tasks
+** Automating repetitive tasks.
 * AVOID
-** Complex solutions
-*** Only ignore this recommendation if the benefits are demonstrably overwhelming
+** Complex solutions.
+*** Only ignore this recommendation if the benefits are demonstrably overwhelming.
 * DON'T
 ** Repeat yourself!
-** Fix it if it ain't broke
-*** We only refactor code that we are actively working on, otherwise we live with the imperfections and tackle higher priority issues
+** Fix it if it ain't broke.
+*** We only refactor code that we are actively working on, otherwise we live with the imperfections and tackle higher priority issues.
 
 ** Something that we feel is extremely bad practice. 
 ** There will only be _very rare_ exceptions, and these need to be discussed by the _whole project team_.
@@ -118,7 +118,7 @@ h2. General
 h2. Requirements
 
 * DO
-** Ensure that acceptance criteria are clearly identified before starting work on a story
+** Ensure that acceptance criteria are clearly identified before starting work on a story.
 * CONSIDER
 * AVOID
 * DON'T
@@ -126,16 +126,16 @@ h2. Requirements
 h2. Design
 
 * DO
-** Follow SOLID[9] design principles
+** Follow SOLID[9] design principles.
 * CONSIDER
-** Asking for a design review at any point of working on a story
+** Asking for a design review at any point of working on a story.
 *** Feel free to pair with another developer if that seems like a better way to get two heads involved.
-** Using composition before reaching for inheritance[10]
+** Using composition before reaching for inheritance[10].
 ** Using Value Objects[11] rather than primitive types[12].
-** Pursuing a functional approach - immutable types[13], "pure functions"[14] etc
-** Using declarative rather than imperative approaches, where possible, even if this means learning a new paradigm e.g. Rx[15]
+** Pursuing a functional approach - immutable types[13], "pure functions"[14] etc.
+** Using declarative rather than imperative approaches, where possible, even if this means learning a new paradigm e.g. Rx[15].
 * AVOID
-** Constructing invalid objects
+** Constructing invalid objects.
 ** Low level threading constructs (threads, locks, wait handles etc). There is almost always a better, higher level abstraction.
 ** Global state - examine all use of static types.
 * DON'T
@@ -144,65 +144,65 @@ h2. Design
 h2. Review
 
 * DO
-** Get a code review when you think you've finished implementation
-** Guide reviews using SOLID[9] principles
+** Get a code review when you think you've finished implementation.
+** Guide reviews using SOLID[9] principles.
 * CONSIDER
-** Starting reviews from the unit tests
-*** Lack of unit tests is an immediate failure of the review
-*** A reviewer should be able to infer the single responsibility of a class from the test suite
+** Starting reviews from the unit tests.
+*** Lack of unit tests is an immediate failure of the review.
+*** A reviewer should be able to infer the single responsibility of a class from the test suite.
 * AVOID
 ** Focussing on style issues. These kinds of checks should be automated.
 * DON'T
-** Be fooled by self explanatory easy to read code - it isn't necessarily SOLID[9]
+** Be fooled by self explanatory easy to read code - it isn't necessarily SOLID[9].
 
 h2. Documentation
 
 * DO
-** Write self explanatory code
-** Write readable unit tests
-** Document all major design decisions[16]
-** Add a single sentence XML code comment to the top of classes you write or touch
-*** Being forced to describe the single responsibility of a class can be a useful design aid
-** Add a project level README.md to explain the role of each project within the solution
-** Add one or more high level diagrams to "explain the big picture"[17]
+** Write self explanatory code.
+** Write readable unit tests.
+** Document all major design decisions[16].
+** Add a single sentence XML code comment to the top of classes you write or touch.
+*** Being forced to describe the single responsibility of a class can be a useful design aid.
+** Add a project level README.md to explain the role of each project within the solution.
+** Add one or more high level diagrams to "explain the big picture"[17].
 * CONSIDER
-** Adding an XML code comment for namespaces to describe their scope and responsibility
+** Adding an XML code comment for namespaces to describe their scope and responsibility.
 * AVOID
 * DON'T
 
 h2. Testing
 
 * DO
-** Use automated tests as your primary test mechanism
-** Treat automated tests as first class citizens in the code base; refactor them, polish them
-** Implement your tests for behaviours but not implementation details such as particular methods
+** Use automated tests as your primary test mechanism.
+** Treat automated tests as first class citizens in the code base; refactor them, polish them.
+** Implement your tests for behaviours but not implementation details such as particular methods.
 * CONSIDER
-** Adding smoke tests to validate components
-** Writing your test cases before your implementation, where appropriate
-** Validate your assumptions[18] by modifying either the implementation *or* the test, but never both together
+** Adding smoke tests to validate components.
+** Writing your test cases before your implementation, where appropriate.
+** Validate your assumptions[18] by modifying either the implementation *or* the test, but never both together.
 * AVOID
-** Extensive usage of stubs and mocks in unit test setup
+** Extensive usage of stubs and mocks in unit test setup.
 * DON'T
-** Test multiple scenarios in a single unit test
+** Test multiple scenarios in a single unit test.
 
 h2. Build/Deploy
 
 * DO
 ** Keep the build green at all costs.
-*** Panic when the build goes red - establish who is working to resolve the issue
-*** Prioritise fixing the build over finishing a story
-** Treat build/deploy scripts as first class citizens
-*** The same rules and standards you apply to code apply to your scripts
+*** Panic when the build goes red - establish who is working to resolve the issue.
+*** Prioritise fixing the build over finishing a story.
+** Treat build/deploy scripts as first class citizens.
+*** The same rules and standards you apply to code apply to your scripts.
 * CONSIDER
-** Backing out changes that break the build
+** Backing out changes that break the build.
 * AVOID
 * DON'T
-** Disable any automated tests
+** Disable any automated tests.
 
 h2. Revision Control
 * DO
-** Use "atomic" commits
-** Collaborate with your team to help avoid (potentially) costly manual merges
+** Use "atomic" commits.
+** Collaborate with your team to help avoid (potentially) costly manual merges.
 * CONSIDER
 ** Wording your commit messages in future tense e.g. "Fix memory leak in AcmeController" not "Fixed bug..."
 * AVOID
