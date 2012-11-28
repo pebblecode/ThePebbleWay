@@ -59,18 +59,17 @@ The guidelines have been further categorised
 (idea stolen from "Framework Design Guidelines":http://www.amazon.co.uk/Framework-Design-Guidelines-Conventions-Development/dp/0321545613) into:
 
 * Do
-** Something that we feel is extremely important to do. 
-** There will only be _very rare_ exceptions, and these need to be discussed by the _whole project team_.
+** Something that we feel is extremely important to do
+** There will only be _very rare_ exceptions, and these need to be discussed by the _whole project team_
 * Consider
-** Something that is our default approach, but we sometimes choose not to do when we understand the implications. 
-** These exceptions must be discussed in an _early review_.
+** Something that is our default approach, but we sometimes choose not to do when we understand the implications
+** These exceptions must be discussed in an _early review_
 * Avoid
-** Something that we try not to do, but may sometimes choose to when we understand the implications. 
-** These exceptions must be discussed in an _early review_.
+** Something that we try not to do, but may sometimes choose to when we understand the implications.
+** These exceptions must be discussed in an _early review_
 * Don't
-** Something that we feel is extremely bad practice. 
-** There will only be _very rare_ exceptions, and these need to be discussed by the _whole project team_.
-
+** Something that we feel is extremely bad practice.
+** There will only be _very rare_ exceptions, and these need to be discussed by the _whole project team_
 
 h2. General
 
@@ -84,7 +83,7 @@ h2. General
 * DON'T
 ** Repeat yourself!
 ** Fix it if it ain't broke
-*** We only refactor code that we are actively working on, otherwise we live with the imperfections and tackle higher priority issues.
+*** We only refactor code that we are actively working on, otherwise we live with the imperfections and tackle higher priority issues
 
 h2. Requirements
 
@@ -98,8 +97,8 @@ h2. Design
 
 * DO
 ** Follow SOLID:http://en.wikipedia.org/wiki/SOLID_(object-oriented_design) design principles
-** Prefer composition over inheritence.
 ** Use type inference (var in C#) to aid refactoring in the long-term. Less files touched = cleaner changesets.
+** Prefer composition over inheritence
 * CONSIDER
 ** Pursuing a functional approach - immutable types, "pure functions":http://en.wikipedia.org/wiki/Pure_function etc
 ** Asking for a design review at any point of working on a story
@@ -134,7 +133,7 @@ h2. Documentation
 ** Add a project level README.md to explain the role of each project within the solution
 ** Add one or more high level diagrams to "explain the big picture":http://www.codingthearchitecture.com/pages/book/start-with-the-big-picture.html
 * CONSIDER
-** Adding an XML code comment for namespaces to describe their scope and responsibility.
+** Adding an XML code comment for namespaces to describe their scope and responsibility
 * AVOID
 * DON'T
 
@@ -153,7 +152,7 @@ h2. Testing
 h2. Build/Deploy
 
 * DO
-** Keep the build green at all costs
+** Keep the build green at all costs.
 *** Panic when the build goes red - establish who is working to resolve the issue
 *** Prioritise fixing the build over finishing a story
 ** Treat build/deploy scripts as first class citizens
