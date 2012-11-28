@@ -119,6 +119,7 @@ h2. Requirements
 
 * DO
 ** Ensure that acceptance criteria are clearly identified before starting work on a story.
+** Gather domain knowledge and terminology and use it to build a "ubiquitous language" that traverses developer, codebase, documentation and end customer.
 * CONSIDER
 * AVOID
 * DON'T
