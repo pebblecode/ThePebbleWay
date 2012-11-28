@@ -1,6 +1,7 @@
 h1. The Pebble Way
 
-bq. "Simple software that solves difficult problems"
+bq. A manifesto for producing:
+_"Simple software that solves difficult problems"_
 -- pebble {code} website (2012)
 
 This document defines what we at pebble {code} believe is the correct way to develop .NET software. 
