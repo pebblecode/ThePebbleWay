@@ -97,7 +97,6 @@ h2. Design
 
 * DO
 ** Follow SOLID:http://en.wikipedia.org/wiki/SOLID_(object-oriented_design) design principles
-** Use type inference (var in C#) to aid refactoring in the long-term. Less files touched = cleaner changesets.
 ** Prefer composition over inheritence
 * CONSIDER
 ** Pursuing a functional approach - immutable types, "pure functions":http://en.wikipedia.org/wiki/Pure_function etc
