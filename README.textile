@@ -167,6 +167,17 @@ h2. Build/Deploy
 * DON'T
 ** Disable any automated tests
 
+h2. Revision Control
+* DO
+** Use "atomic" commits
+** Collaborate with your team to help avoid (potentially) costly manual merges
+* CONSIDER
+** Wording your commit messages in future tense e.g. "Fix memory leak in AcmeController" not "Fixed bug..."
+* AVOID
+**
+* DON'T
+**
+
 h1. References/Further Reading
 
 fn1. Simple Made Easy:http://www.infoq.com/presentations/Simple-Made-Easy-QCon-London-2012
