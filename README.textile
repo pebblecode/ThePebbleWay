@@ -139,7 +139,7 @@ h2. Design
 ** Low level threading constructs (threads, locks, wait handles etc). There is almost always a better, higher level abstraction.
 ** Global state - examine all use of static types.
 * DON'T
-** Mix mutable state and lazy evaluation. You have been warned - don't come crying to me.
+** Mix mutable state and lazy evaluation.
 
 h2. Review
 
