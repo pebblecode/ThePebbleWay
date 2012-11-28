@@ -137,7 +137,6 @@ h2. Documentation
 * AVOID
 * DON'T
 
-
 h2. Testing
 
 * DO
