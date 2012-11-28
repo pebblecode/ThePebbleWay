@@ -1,21 +1,22 @@
 h1. The Pebble Way
 
-bq. "Simple software that solves difficult problems"
+bq. A manifesto for producing:
+_"Simple software that solves difficult problems"_
 -- pebble {code} website (2012)
 
-This document defines what we at pebble {code} believe is the correct way to develop .NET software. 
-It starts from the assumption that the team is smart, motivated and _passionate_ about software development. Therefore 
-it is not an attempt to prevent a weak team from causing damage; it is a set of guidelines that can:
+Pebble {code} believe the correct way to develop .NET software starts from the assumption that the team
+is smart, motivated and _passionate_ about software development. This manifesto is not an attempt to
+prevent a weak team from causing damage; it is a set of guidelines that can:
 
 * Help smart people come up with the correct solutions to the problems they face whilst developing software.
 * Encourage creativity and risk-taking by providing a safety net that detects problems early and limits their impact.
 * Allow people to move between projects by reducing the learning curve to the bare minimum.
 
-It is heavily based on the ideas in "Simple Made Easy"[1]. Make sure you have watched that video before proceeding with the rest of this document.
+It is heavily based on the ideas presented by "Simple Made Easy"[1]. *Make sure you have watched that video before proceeding with the rest of this document.*
 
-Firstly, all software development is a design activity[2], and simplicity lies at the heart of all principles and guidelines for software design. 
+All software development is a design activity[2], and simplicity lies at the heart of all principles and guidelines for software design. 
 Rather than trying to list out everything that we believe we should be doing (which is an impossible task because the 
-correct approach is always context-dependent), _analyzing the problem from the perspective of simplicity can provide a 
+correct approach is always context-dependent), _analysing the problem from the perspective of simplicity can provide a 
 way to arrive at the correct solution_. However, we typically conflate the meaning of "easy" and "simple", so the first 
 step is to clearly differentiate the two terms so that we can have meaningful conversations:
 
@@ -24,30 +25,39 @@ step is to clearly differentiate the two terms so that we can have meaningful co
 * Simplicity is often hard to achieve
 * Simple things are _always_ easy to use
 
-Secondly, we are blind to a lot of the complexity because it is so familiar to us. Many of our current standard software 
+We are blind to a lot of the complexity because it is so familiar to us. Many of our current standard software 
 development practices originated over 20 years ago, and are optimised to deal with far more onerous constraints (both in 
 terms of hardware and software) than we face today. As a result, these practices often introduce significant accidental 
 complexity into our solutions. _We need to be open to investigating the new approaches that will become dominant in the 
 next decade_.
 
-Thirdly, we need to be clear about who the user is, as they (*not* us) will judge our efforts. For a UI, it is the human interacting 
+We also need to be clear about who the user is, as they (*not* us) will judge our efforts. For a UI, it is the human interacting 
 with it; for an API, it is the client application; for a component, it is the next programmer who needs to understand it, etc. 
 _Then we need to figure out how best to communicate with that user (again using simplicity as a guide)_.
 
 h1. Evolution
 
-This document will evolve over time. At any point any team member can suggest a change, and if the team agrees then the change is adopted.
-_However, nobody is allowed to unilaterally ignore any aspect of this document_.
+This document will evolve over time. At any point any team member can suggest a change, and if the team agrees then the change is adopted. _However, nobody is allowed to unilaterally ignore any aspect of this document_.
+
+h1. General Principles
+
+* All technical work is undertaken in order to deliver something that our clients value. If we can't identify client value in something we are proposing, then we shouldn't be doing it. Focus on delivering a _continual stream_ of value to the client.
+* Use simplicity as the primary metric when evaluating competing options. Avoid complex options unless the benefits are demonstrably overwhelming.
+* Lean heavily on your tools to automate as much routine work as practical e.g.
+** Enforcing coding style guidelines
+** Catching common programming errors
+*** Judicious use of tools like FxCop[3] or NDepend[4] for detecting errors
+*** Richer languages (e.g. F#[5]) and/or more sophisticated compilers (e.g. Code Contracts[6]) for preventing errors
+*** Types are your friend (most of the time), as they enlist the compiler to come to your aid. 
+* Make it correct, make it clear, make it concise, make it fast. In that order.[7]
 
 h1. Some Concrete Guidelines
 
-What follows are some guidelines under the folowing headings:
+What follows are some guidelines under the following headings:
 
-* General
 * Requirements
 * Design
 * Review
-* Implementation
 * Documentation
 * Testing
 * Build/Deployment
@@ -55,40 +65,61 @@ What follows are some guidelines under the folowing headings:
 These headings are only there to make it easier to navigate the content: they do *not* imply that we are following a waterfall process.
 
 The guidelines have been further categorised 
-(idea stolen from "Framework Design Guidelines":http://www.amazon.co.uk/Framework-Design-Guidelines-Conventions-Development/dp/0321545613) into:
+(idea stolen from "Framework Design Guidelines"[8]) into:
 
 * Do
-** Something that we feel is extremely important to do. 
+** Something that we feel is extremely important to do.
 ** There will only be _very rare_ exceptions, and these need to be discussed by the _whole project team_.
 * Consider
-** Something that is our default approach, but we sometimes choose not to do when we understand the implications. 
+** Something that is our default approach, but we sometimes choose not to do when we understand the implications.
 ** These exceptions must be discussed in an _early review_.
 * Avoid
-** Something that we try not to do, but may sometimes choose to when we understand the implications. 
+** Something that we try not to do, but may sometimes choose to when we understand the implications.
 ** These exceptions must be discussed in an _early review_.
 * Don't
-** Something that we feel is extremely bad practice. 
+** Something that we feel is extremely bad practice.
 ** There will only be _very rare_ exceptions, and these need to be discussed by the _whole project team_.
 
 
 h2. General
 
 * DO
-** Use simplicity as the primary metric when evaluating competing options
+** Use simplicity as the primary metric when evaluating competing options.
 * CONSIDER
-** Automating repetitive tasks
+** Automating repetitive tasks.
 * AVOID
-** Complex solutions
-*** Only ignore this recommendation if the benefits are demonstrably overwhelming
+** Complex solutions.
+*** Only ignore this recommendation if the benefits are demonstrably overwhelming.
 * DON'T
 ** Repeat yourself!
-** Fix it if it ain't broke
+** Fix it if it ain't broke.
 *** We only refactor code that we are actively working on, otherwise we live with the imperfections and tackle higher priority issues.
+
+** Something that we feel is extremely bad practice.
+** There will only be _very rare_ exceptions, and these need to be discussed by the _whole project team_.
+
+h2. General
+
+* DO
+** Use simplicity as the primary metric when evaluating competing options.
+* CONSIDER
+** Automating repetitive tasks.
+* AVOID
+** Complex solutions.
+*** Only ignore this recommendation if the benefits are demonstrably overwhelming.
+* DON'T
+** Repeat yourself!
+** Fix it if it ain't broke.
+*** We only refactor code that we are actively working on, otherwise we live with the imperfections and tackle higher priority issues.
+
+** Something that we feel is extremely bad practice. 
+** There will only be _very rare_ exceptions, and these need to be discussed by the _whole project team_.
 
 h2. Requirements
 
 * DO
-** Ensure that acceptance criteria are clearly identified before starting work on a story
+** Ensure that acceptance criteria are clearly identified before starting work on a story.
+** Gather domain knowledge and terminology and use it to build a "ubiquitous language" that traverses developer, codebase, documentation and end customer.
 * CONSIDER
 * AVOID
 * DON'T
@@ -96,68 +127,89 @@ h2. Requirements
 h2. Design
 
 * DO
-** Follow SOLID:http://en.wikipedia.org/wiki/SOLID_(object-oriented_design) design principles
+** Follow SOLID[9] design principles.
 * CONSIDER
-** Pursuing a functional approach - immutable types, "pure functions":http://en.wikipedia.org/wiki/Pure_function etc
-** Asking for a design review at any point of working on a story
+** Asking for a design review at any point of working on a story.
 *** Feel free to pair with another developer if that seems like a better way to get two heads involved.
+** Using composition before reaching for inheritance[10].
+** Using Value Objects[11] rather than primitive types[12].
+** Pursuing a functional approach - immutable types[13], "pure functions"[14] etc.
+** Using declarative rather than imperative approaches, where possible, even if this means learning a new paradigm e.g. Rx[15].
 * AVOID
-** Constructing invalid objects
-** Mutable objects
+** Constructing invalid objects.
+** Low level threading constructs (threads, locks, wait handles etc). There is almost always a better, higher level abstraction.
+** Global state - examine all use of static types.
 * DON'T
+** Mix mutable state and lazy evaluation.
 
 h2. Review
 
 * DO
-** Get a code review when you think you've finished implementation
-** Guide reviews using SOLID:http://en.wikipedia.org/wiki/SOLID_(object-oriented_design) principles
+** Get a code review when you think you've finished implementation.
+** Guide reviews using SOLID[9] principles.
 * CONSIDER
-** Starting reviews from the unit tests
-*** Lack of unit tests is an immediate failure of the review
-*** A reviewer should be able to infer the single responsibility of a class from the test suite
+** Starting reviews from the unit tests.
+*** Lack of unit tests is an immediate failure of the review.
+*** A reviewer should be able to infer the single responsibility of a class from the test suite.
 * AVOID
+** Focusing on style issues. These kinds of checks should be automated.
 * DON'T
-** Be fooled by self explanatory easy to read code - it isn't necessarily SOLID
+** Be fooled by self explanatory easy to read code - it isn't necessarily SOLID[9].
 
 h2. Documentation
 
 * DO
-** Write self explanatory code
-** Write readable unit tests
-** Document all major design decisions - one possible approach:http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions
-** Add a single sentence XML code comment to the top of classes you write or touch
-*** Being forced to describe the single responsibility of a class can be a useful design aid
-** Add a project level README.md to explain the role of each project within the solution
-** Add one or more high level diagrams to "explain the big picture":http://www.codingthearchitecture.com/pages/book/start-with-the-big-picture.html
+** Write self explanatory code.
+** Write readable unit tests.
+** Document all major design decisions[16].
+** Add a single sentence XML code comment to the top of classes you write or touch.
+*** Being forced to describe the single responsibility of a class can be a useful design aid.
+** Add a project level README.md to explain the role of each project within the solution.
+** Add one or more high level diagrams to "explain the big picture"[17].
 * CONSIDER
+** Adding an XML code comment for namespaces to describe their scope and responsibility.
 * AVOID
 * DON'T
-
 
 h2. Testing
 
 * DO
-** Use unit tests as your primary test mechanism
+** Use automated tests as your primary test mechanism.
+** Treat automated tests as first class citizens in the code base; refactor them, polish them.
+** Implement your tests for behaviours but not implementation details such as particular methods.
 * CONSIDER
-** Adding smoketests to validate components
+** Adding smoke tests to validate components.
+** Writing your test cases before your implementation, where appropriate.
+** Validate your assumptions[18] by modifying either the implementation *or* the test, but never both together.
 * AVOID
-** Extensive usage of stubs and mocks in unit test setup
+** Extensive usage of stubs and mocks in unit test setup.
 * DON'T
-** Test multiple scenarios in a single unit test
+** Test multiple scenarios in a single unit test.
 
 h2. Build/Deploy
 
 * DO
-** Keep the build green at all costs
-*** Panic when the build goes red - establish who is working to resolve the issue
-*** Prioritise fixing the build over finishing a story
-** Treat build/deploy scripts as first class citizens
-*** The same rules and standards you apply to code apply to your scripts
+** Keep the build green at all costs.
+*** Panic when the build goes red - establish who is working to resolve the issue.
+*** Prioritise fixing the build over finishing a story.
+** Treat build/deploy scripts as first class citizens.
+*** The same rules and standards you apply to code apply to your scripts.
 * CONSIDER
-** Backing out changes that break the build
+** Backing out changes that break the build.
 * AVOID
 * DON'T
-** Disable any automated tests
+** Disable any automated tests.
+
+h2. Revision Control
+* DO
+** Use "atomic" commits.
+** Collaborate with your team to help avoid (potentially) costly manual merges.
+* CONSIDER
+** Wording your commit messages in future tense e.g. "Fix memory leak in AcmeController" not "Fixed bug..."
+* AVOID
+**
+* DON'T
+**
 
 h1. References/Further Reading
 
@@ -165,13 +217,34 @@ fn1. Simple Made Easy:http://www.infoq.com/presentations/Simple-Made-Easy-QCon-L
 
 fn2. Code as Design:http://www.developerdotstar.com/mag/articles/reeves_design_main.html
 
-fn3. Framework Design Guidelines:http://www.amazon.co.uk/Framework-Design-Guidelines-Conventions-Development/dp/0321545613
+fn3. FxCop:http://www.microsoft.com/en-us/download/details.aspx?id=6544
 
-fn4. Architecture Decision Records:http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions
+fn4. NDepend:http://www.ndepend.com/
 
-fn5. SOLID::http://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
+fn5. F#:http://www.tryfsharp.org/
 
-fn6. Immutable Types:http://msdn.microsoft.com/en-us/library/hh297115(v=vs.100).aspx
+fn6. Code Contracts:http://research.microsoft.com/en-us/projects/contracts/
 
-fn7. Pure Functions:http://blogs.msdn.com/b/ericwhite/archive/2006/10/03/pure-functions.aspx
+fn7. Immutability, Purity, and Referential Transparency:http://blogs.msdn.com/b/wesdyer/archive/2007/03/01/immutability-purity-and-referential-transparency.aspx
 
+fn8. Framework Design Guidelines:http://www.amazon.co.uk/Framework-Design-Guidelines-Conventions-Development/dp/0321545613
+
+fn9. SOLID::http://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
+
+fn10. Composition over inheritance:http://en.wikipedia.org/wiki/Composition_over_inheritance
+
+fn11. Value Objects:http://www.infoq.com/presentations/Value-Objects-Dan-Bergh-Johnsson
+
+fn12. Primitive Obsession:http://c2.com/cgi/wiki?PrimitiveObsession
+
+fn13. Immutable Types:http://msdn.microsoft.com/en-us/library/hh297115(v=vs.100).aspx
+
+fn14. Pure Functions:http://blogs.msdn.com/b/ericwhite/archive/2006/10/03/pure-functions.aspx
+
+fn15. Reactive Extensions:http://www.introtorx.com/Content/v1.0.10621.0/01_WhyRx.html#WhyRx
+
+fn16. Architecture Decision Records:http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions
+
+fn17. Start with the Big Picture:http://www.codingthearchitecture.com/pages/book/start-with-the-big-picture.html
+
+fn18. Replacement C# compiler and TDD:http://skillsmatter.com/podcast/java-jee/itb-greg-young
