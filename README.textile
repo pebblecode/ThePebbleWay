@@ -141,9 +141,13 @@ h2. Documentation
 h2. Testing
 
 * DO
-** Use unit tests as your primary test mechanism
+** Use automated tests as your primary test mechanism
+** Treat automated tests as first class citizens in the code base; refactor them, polish them
+** Implement your tests for behaviours but not implementation details such as particular methods
 * CONSIDER
-** Adding smoketests to validate components
+** Adding smoke tests to validate components
+** Writing your test cases before your implementation, where appropriate
+** Validate your assumptions[8] by modifying either the implementation *or* the test, but never both together
 * AVOID
 ** Extensive usage of stubs and mocks in unit test setup
 * DON'T
@@ -179,3 +183,4 @@ fn6. Immutable Types:http://msdn.microsoft.com/en-us/library/hh297115(v=vs.100).
 
 fn7. Pure Functions:http://blogs.msdn.com/b/ericwhite/archive/2006/10/03/pure-functions.aspx
 
+fn8. Replacement C# compiler and TDD:http://skillsmatter.com/podcast/java-jee/itb-greg-young
