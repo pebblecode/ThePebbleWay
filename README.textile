@@ -3,43 +3,19 @@ h1. The Pebble Way
 bq. "Simple software that solves difficult problems"
 -- pebble {code} website (2012)
 
-This document defines what we at pebble {code} believe is the correct way to develop .NET software. 
-It starts from the assumption that the team is smart, motivated and _passionate_ about software development. Therefore 
-it is not an attempt to prevent a weak team from causing damage; it is a set of guidelines that can:
+This document, "The Pebble Way", is the culmination of our collective wisdom in software development. It is designed to drive discussion; to create a positive and proactive culture.
 
-* Help smart people come up with the correct solutions to the problems they face whilst developing software.
-* Encourage creativity and risk-taking by providing a safety net that detects problems early and limits their impact.
-* Allow people to move between projects by reducing the learning curve to the bare minimum.
+h2. New Developers
 
-It is heavily based on the ideas in "Simple Made Easy"[1]. Make sure you have watched that video before proceeding with the rest of this document.
+Watch the "Simple Made Easy"[1] video, as this was the original inspiration for many of the principals added to this document. We hope that this will inspire you, as it did us, to strive to create "simple" software solutions.
 
-Firstly, all software development is a design activity[2], and simplicity lies at the heart of all principles and guidelines for software design. 
-Rather than trying to list out everything that we believe we should be doing (which is an impossible task because the 
-correct approach is always context-dependent), _analyzing the problem from the perspective of simplicity can provide a 
-way to arrive at the correct solution_. However, we typically conflate the meaning of "easy" and "simple", so the first 
-step is to clearly differentiate the two terms so that we can have meaningful conversations:
+h2. On-going Use of The Pebble Way
 
-* Easy = "familiar, near-at-hand, close to our capabilities" (the opposite being "hard")
-* Simple = "one fold or braid" (the opposite being "complex", meaning "braided together, entwined")
-* Simplicity is often hard to achieve
-* Simple things are _always_ easy to use
+Having read the guidelines, the challenge is to put these into practice in our day-to-day software development.
 
-Secondly, we are blind to a lot of the complexity because it is so familiar to us. Many of our current standard software 
-development practices originated over 20 years ago, and are optimised to deal with far more onerous constraints (both in 
-terms of hardware and software) than we face today. As a result, these practices often introduce significant accidental 
-complexity into our solutions. _We need to be open to investigating the new approaches that will become dominant in the 
-next decade_.
+This document will evolve over time; at any point a team member can suggest a change, and if the team agrees then the change is adopted.
 
-Thirdly, we need to be clear about who the user is, as they (*not* us) will judge our efforts. For a UI, it is the human interacting 
-with it; for an API, it is the client application; for a component, it is the next programmer who needs to understand it, etc. 
-_Then we need to figure out how best to communicate with that user (again using simplicity as a guide)_.
-
-h1. Evolution
-
-This document will evolve over time. At any point any team member can suggest a change, and if the team agrees then the change is adopted.
-_However, nobody is allowed to unilaterally ignore any aspect of this document_.
-
-h1. Some Concrete Guidelines
+h1. The Guidelines
 
 What follows are some guidelines under the folowing headings:
 
