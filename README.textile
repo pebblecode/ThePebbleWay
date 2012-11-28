@@ -139,6 +139,7 @@ h2. Testing
 * DO
 ** Use unit tests as your primary test mechanism
 ** Cover non-core code including build and view models
+** Use clear and understandable naming of tests
 * CONSIDER
 ** Adding smoketests to validate components
 * AVOID
