@@ -61,18 +61,12 @@ h2. General
 ** Fix it if it ain't broke
 *** We only refactor code that we are actively working on, otherwise we live with the imperfections and tackle higher priority issues.
 
-h2. Requirements
-
-* DO
-** Ensure that acceptance criteria are clearly identified before starting work on a story
-* CONSIDER
-* AVOID
-* DON'T
 
 h2. Design
 
 * DO
 ** Follow SOLID:http://en.wikipedia.org/wiki/SOLID_(object-oriented_design) design principles
+** Ensure that acceptance criteria are clearly identified before starting work on a story
 * CONSIDER
 ** Pursuing a functional approach - immutable types, "pure functions":http://en.wikipedia.org/wiki/Pure_function etc
 ** Asking for a design review at any point of working on a story
